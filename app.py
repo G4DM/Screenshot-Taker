@@ -6,7 +6,7 @@ import time
 import img2pdf
 import requests
 
-def download_pdf(url, save_path):
+def download_pdf(url, save_path):   
     try:
         response = requests.get(url)
         with open(f"{save_path}/downloaded_pdf.pdf", "wb") as f:
@@ -48,7 +48,7 @@ def take_full_page_screenshot():
 
         # Tomar capturas de pantalla desplazándose hacia abajo
         screenshots = []
-        for i in range(0, height, 1000):
+        for i in range(0, height, 600):
             driver.execute_script(f"window.scrollTo(0, {i});")
             time.sleep(0.5)  # Esperar un poco para que la página se cargue completamente
             screenshot_path = f"{save_path}/screenshot_{i}.png"
